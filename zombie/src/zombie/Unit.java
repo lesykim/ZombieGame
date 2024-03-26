@@ -7,13 +7,13 @@ public class Unit {
 	private int hp;
 	private boolean isDead;
 
-	int max;
+	private final int MAX;
 	Random ran;
 	
 	public Unit(int pos, int hp, int max) {
 		this.pos=pos;
 		this.hp = hp;
-		this.max=max;
+		this.MAX=max;
 		ran = new Random();
 	}
 
@@ -22,7 +22,10 @@ public class Unit {
 	}
 
 	public void setHpPlus() {
-		this.hp++;
+		if(MAX == this.hp) {
+			return;
+		}
+		this.hp++;			
 	}
 	
 	public void setHpMinus() {

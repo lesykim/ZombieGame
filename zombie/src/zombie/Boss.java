@@ -29,6 +29,7 @@ public class Boss extends Unit implements Damage, Attack{
 		int random = ran.nextInt(5);
 		if(random == 1) {
 			attack *= 2;
+			System.out.println("크리티컬💥💥 ");
 		}
 		System.out.printf("Boss %d 공격⚔️\n",attack);
 		while(attack>0) {

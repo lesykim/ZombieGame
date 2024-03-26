@@ -2,18 +2,18 @@ package zombie;
 
 import java.util.Random;
 
-public class Unit {
+abstract public class Unit {
 	private int pos;
 	private int hp;
 	private boolean isDead;
-
-	private final int MAX;
+	private int max;
+	
 	Random ran;
 	
 	public Unit(int pos, int hp, int max) {
 		this.pos=pos;
 		this.hp = hp;
-		this.MAX=max;
+		this.max=max;
 		ran = new Random();
 	}
 
@@ -22,9 +22,6 @@ public class Unit {
 	}
 
 	public void setHpPlus() {
-		if(MAX == this.hp) {
-			return;
-		}
 		this.hp++;			
 	}
 	
@@ -36,12 +33,22 @@ public class Unit {
 			this.hp--;
 		}
 	}
+	
+	public boolean isDead() {
+		return isDead;
+	}
 
 	public int getPos() {
 		return pos;
 	}
+	
+	public int getMax() {
+		return max;
+	}
 
 	public void moveForword() {
 		this.pos++;
+		System.out.println("앞으로 이동");
 	}
+	
 }
